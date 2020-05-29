@@ -76,6 +76,12 @@ class Interpreter {
 	 */
 	set(name, value) {
 		this.variables[name] = value;
+
+		if (!isFinite(value)) {
+			this.print(`Aborted with a warning: Variable ${name} went to Infinity.`);
+			throw new Error();
+		}
+
 		this.updateVariableDisplay();
 	}
 }
