@@ -1,4 +1,4 @@
-const variableNames = "Ans|A|B|C|D|E|F|G|H|I|J|K|L|M|N|O|P|Q|R|T|U|V|W|X|Y|Z|theta".split('|');
+const variableNames = "Ans|A|B|C|D|E|F|G|H|I|J|K|L|M|N|O|P|Q|R|S|T|U|V|W|X|Y|Z|theta".split('|');
 
 /**
  * Handles interfacing between the JS and the user.
