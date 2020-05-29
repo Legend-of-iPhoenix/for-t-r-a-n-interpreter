@@ -205,6 +205,30 @@ class Disp extends Statement {
 	}
 }
 
+class Input extends Statement {
+	/**
+	 * @param {Reference} arg The variable to set
+	 */
+	constructor(arg) {
+		super();
+		this.arg = arg;
+	}
+
+	execute() {
+		const getInput = () => {
+			let match = /^~?(?:\d+(?:\.\d+)?|\.\d+)/.exec(prompt(this.arg.name + "=?"));
+			if (match === null) {
+				return getInput();
+			} else {
+				let literal = match[0];
+				return parseFloat(literal.replace('~', '-'));
+			}
+		}
+
+		this.arg.set(getInput());
+	}
+}
+
 class Parser {
 	constructor(code, options) {
 		/**
@@ -524,6 +548,27 @@ class Parser {
 		}
 	}
 
+	/**
+	 * @return {Input|null}
+	 */
+	consumeInput() {
+		if (this.endOfCode()) return null;
+
+		if (this.peek("Input ")) {
+			if (!this.startOfLine) {
+				this.throwFatal("Unexpected Input statement");
+			}
+
+			this.consume("Input ");
+
+			let arg = this.consumeReference();
+
+			return new Input(arg);
+		} else {
+			return null;
+		}
+	}
+
 	consumeStatement() {
 		let consumedJunk;
 		do {
@@ -545,7 +590,7 @@ class Parser {
 			consumedJunk = consumedJunk || this.consumeComment();
 		} while (consumedJunk);
 
-		return this.consumeLoop() || this.consumeDisp() || this.consumeEnd();
+		return this.consumeLoop() || this.consumeDisp() || this.consumeInput() || this.consumeEnd();
 	}
 
 	/**
