@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>For(T,R,A,N</title>
+	<style>
+		head, body {
+			margin: 0;
+		}
+
+		* {
+			font-family: monospace;
+		}
+
+		div#content {
+			width: 100vw;
+			display: flex;
+		}
+
+		div#content > * {
+			height: 100vh;
+			padding: 5px;
+		}
+
+		#code {
+			resize: vertical;
+			height: 100%;
+			width: 100%;
+			box-sizing: border-box;
+
+			font-size: 125%; /** Eye strain is bad, children */
+		}
+
+		#codeinput {
+			flex: 4 0 auto;
+		}
+
+		#devtools {
+			background-color: white;
+			width: 20rem;
+		}
+
+		.fixed {
+			position: fixed;
+			bottom: 0px;
+			padding-bottom: 5px;
+		}
+
+		.follower {
+			position: sticky;
+			top: 0px;
+			padding-top: 5px;
+		}
+
+		#outputcol {
+			display: none;
+		}
+
+		#outputcol.visible {
+			display: block;
+		}
+
+		#output {
+			resize: none;
+			width: 100%;
+			height: 100%;
+
+			box-sizing: border-box;
+		}
+
+		input[readonly]:focus {
+			outline: none;
+		}
+	</style>
+	<script src="interpreter.js"></script>
+</head>
+<body>
+	<h2><a href="https://www.cemetech.net/forum/viewtopic.php?p=286007#286007">For(T,R,A,N</a> Interpreter</h2>
+	<div class="fixed" id=devtools>
+		<label for=input>Input: </label>
+		<input id=input name=input type=number value=10>
+		<br>
+		<button id=run onclick="interpreter.run();">Evaluate</button>
+		<br>
+		<button id=toggleOutput onclick="interpreter.toggleOutput();">Hide/Show Output</button>
+		<br>
+		<label for=doWarnings>Send warnings to output</label>
+		<input name=doWarnings id=doWarnings type=checkbox>
+	</div>
+	<div id=content>
+		<section id=codeinput>
+			<label for=code>Code: </label>
+			<textarea id=code>// Fibonacci by kg583
+For(A,0,0:For(B,1,1
+For(D,2,Ans
+For(C,A,A,B:End
+For(A,B,0:End
+For(B,C,0:End
+Disp B
+End</textarea>
+		</section>
+		<section id=outputcol>
+			<label for=output>Output: </label>
+			<textarea id=output disabled></textarea>
+		</section>
+		<section id=variables>
+			<div class=follower>
+				<div> Variables: <button onclick="interpreter.reset(); interpreter.updateVariableDisplay();">Reset</button></div>
+				<table>
+					<tbody>
+						<tr><td><label for=Ans>Ans:</label></td> <td><input name=Ans type=number readonly></td></tr>
+						<tr><td><label for=A>A:</label></td> <td><input name=A type=number readonly></td></tr>
+						<tr><td><label for=B>B:</label></td> <td><input name=B type=number readonly></td></tr>
+						<tr><td><label for=C>C:</label></td> <td><input name=C type=number readonly></td></tr>
+						<tr><td><label for=D>D:</label></td> <td><input name=D type=number readonly></td></tr>
+						<tr><td><label for=E>E:</label></td> <td><input name=E type=number readonly></td></tr>
+						<tr><td><label for=F>F:</label></td> <td><input name=F type=number readonly></td></tr>
+						<tr><td><label for=G>G:</label></td> <td><input name=G type=number readonly></td></tr>
+						<tr><td><label for=H>H:</label></td> <td><input name=H type=number readonly></td></tr>
+						<tr><td><label for=I>I:</label></td> <td><input name=I type=number readonly></td></tr>
+						<tr><td><label for=J>J:</label></td> <td><input name=J type=number readonly></td></tr>
+						<tr><td><label for=K>K:</label></td> <td><input name=K type=number readonly></td></tr>
+						<tr><td><label for=L>L:</label></td> <td><input name=L type=number readonly></td></tr>
+						<tr><td><label for=M>M:</label></td> <td><input name=M type=number readonly></td></tr>
+						<tr><td><label for=N>N:</label></td> <td><input name=N type=number readonly></td></tr>
+						<tr><td><label for=O>O:</label></td> <td><input name=O type=number readonly></td></tr>
+						<tr><td><label for=P>P:</label></td> <td><input name=P type=number readonly></td></tr>
+						<tr><td><label for=Q>Q:</label></td> <td><input name=Q type=number readonly></td></tr>
+						<tr><td><label for=R>R:</label></td> <td><input name=R type=number readonly></td></tr>
+						<tr><td><label for=T>T:</label></td> <td><input name=T type=number readonly></td></tr>
+						<tr><td><label for=U>U:</label></td> <td><input name=U type=number readonly></td></tr>
+						<tr><td><label for=V>V:</label></td> <td><input name=V type=number readonly></td></tr>
+						<tr><td><label for=W>W:</label></td> <td><input name=W type=number readonly></td></tr>
+						<tr><td><label for=X>X:</label></td> <td><input name=X type=number readonly></td></tr>
+						<tr><td><label for=Y>Y:</label></td> <td><input name=Y type=number readonly></td></tr>
+						<tr><td><label for=Z>Z:</label></td> <td><input name=Z type=number readonly></td></tr>
+						<tr><td><label for=theta>&theta;:</label></td> <td><input name=theta type=number readonly></td></tr>
+					</tbody>
+				</table>
+			</div>
+		</section>
+	</div>
+</body>
+</html>
