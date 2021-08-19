@@ -1,0 +1,5 @@
+// Author: iPhoenix
+Input N
+For(A,0,N
+Disp A
+End
