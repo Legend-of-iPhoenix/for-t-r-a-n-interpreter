@@ -1,0 +1,9 @@
+// Author: kg583
+Input M
+For(A,0,0:For(B,1,1
+For(D,2,M
+For(C,A,A,B:End
+For(A,B,0:End
+For(B,C,0:End
+Disp B
+End
