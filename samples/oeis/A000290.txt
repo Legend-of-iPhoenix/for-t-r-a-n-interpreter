@@ -1,0 +1,14 @@
+// Author: kg583
+Input N
+For(A,0,0
+For(I,1,N
+Disp A
+For(J,I,0
+End
+For(J,J,J,J
+End
+For(J,J,J,-1
+End
+For(A,A,A,J
+End
+End
