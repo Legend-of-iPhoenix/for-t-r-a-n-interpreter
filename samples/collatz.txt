@@ -1,0 +1,29 @@
+// Author: kg583
+Input N
+For(W,2,2
+Disp N
+For(M,2,N
+For(M,N,N
+End
+For(H,0,-1
+End
+For(R,N,0
+End
+For(R,R,2,-2
+For(H,H,H
+End
+End
+For(S,1,R
+For(H,N,N,N
+End
+For(H,H,H,N
+End
+For(H,H,H
+End
+End
+For(N,H,0
+End
+For(W,1,0
+End
+End
+End
