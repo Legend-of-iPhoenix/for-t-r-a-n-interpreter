@@ -171,9 +171,11 @@ class ForLoop extends Statement {
 
 		this.abortTime = Date.now() + 10000;
 
+		const end = val(this.end);
+
 		while (
-			(val(this.step)  < 0 && val(this.iterator) >= val(this.end)) || 
-			(val(this.step) >= 0 && val(this.iterator) <= val(this.end))
+			(val(this.step)  < 0 && val(this.iterator) >= end) || 
+			(val(this.step) >= 0 && val(this.iterator) <= end)
 		) {
 			if (Date.now() > this.abortTime) return;
 			this.body.execute();
