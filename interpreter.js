@@ -172,15 +172,16 @@ class ForLoop extends Statement {
 		this.abortTime = Date.now() + 10000;
 
 		const end = val(this.end);
+		const step = val(this.step);
 
 		while (
-			(val(this.step)  < 0 && val(this.iterator) >= end) || 
-			(val(this.step) >= 0 && val(this.iterator) <= end)
+			(step  < 0 && val(this.iterator) >= end) || 
+			(step >= 0 && val(this.iterator) <= end)
 		) {
 			if (Date.now() > this.abortTime) return;
 			this.body.execute();
 
-			this.iterator.set(this.iterator.get() + val(this.step));
+			this.iterator.set(this.iterator.get() + step);
 		}
 	}
 }
